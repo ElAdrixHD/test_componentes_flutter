@@ -47,5 +47,6 @@ class HomePage extends StatelessWidget {
       options..add(widgetTemp)
               ..add(Divider());
     });
+    return options;
   }
 }

@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: "/",
       routes: <String, WidgetBuilder>{
-        "/" : (BuildContext context) => HomePage(),
-        "/alert" : (BuildContext context) => AlertPage(),
+        "/"       : (BuildContext context) => HomePage(),
+        "/alert"  : (BuildContext context) => AlertPage(),
         "/avatar" : (BuildContext context) => AvatarPage(),
       },
     );

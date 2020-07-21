@@ -15,11 +15,6 @@
             "ruta" : "/card",
             "icon" : "folder_open",
             "texto": "Cards - Tarjetas"
-        },
-        {
-            "ruta": "/profile",
-            "icon": "person",
-            "texto": "Perfil"
         }
     ]
 }

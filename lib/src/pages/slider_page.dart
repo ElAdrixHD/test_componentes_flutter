@@ -7,6 +7,7 @@ class SliderPage extends StatefulWidget {
 
 class _SliderPageState extends State<SliderPage> {
   double _valorSlider = 200.0;
+  bool _bloqueo = false;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,9 @@ class _SliderPageState extends State<SliderPage> {
         child: Column(
           children: <Widget>[
             _crearSlider(),
-            _crearImagen(),
+            _crearCheckBox(),
+            _crearSwitch(),
+            Expanded(child: _crearImagen()),
           ],
         )
       ),
@@ -31,8 +34,10 @@ class _SliderPageState extends State<SliderPage> {
       activeColor: Colors.indigo,
       label: "Tamaño de la imagen",
       //divisions: 100,
-      onChanged: (double value) {
-        setState(() => _valorSlider = value);
+      onChanged: (_bloqueo)? null:(double value) {
+        setState((){
+          _valorSlider = value;
+        });
       },
       value: _valorSlider,
       min: 200,
@@ -45,6 +50,39 @@ class _SliderPageState extends State<SliderPage> {
       image :NetworkImage("https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fgetwallpapers.com%2Fwallpaper%2Ffull%2F3%2Ff%2F0%2F756854-gallade-wallpapers-2200x2030-for-phones.jpg&f=1&nofb=1"),
       width: _valorSlider,
       fit: BoxFit.contain,
+    );
+  }
+
+  Widget _crearCheckBox() {
+    /* return Checkbox(
+      value: _bloqueo,
+      onChanged: (bool value) {
+        setState(() {
+          _bloqueo = value;
+        });
+      },
+    );*/
+
+    return CheckboxListTile(
+      value: _bloqueo,
+      onChanged: (bool value){
+        setState(() {
+          _bloqueo = value;
+        });
+      },
+      title: Text("Bloquear Slider"),
+    ) ;
+  }
+
+  Widget _crearSwitch() {
+    return SwitchListTile(
+      value: _bloqueo,
+      onChanged: (bool value){
+        setState(() {
+          _bloqueo = value;
+        });
+      },
+      title: Text("Bloquear Slider"),
     );
   }
 }

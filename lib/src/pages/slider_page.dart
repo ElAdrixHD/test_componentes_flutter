@@ -40,7 +40,7 @@ class _SliderPageState extends State<SliderPage> {
         });
       },
       value: _valorSlider,
-      min: 0,
+      min: 50,
       max: 500,
     );
   }
